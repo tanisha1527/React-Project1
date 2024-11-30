@@ -10,7 +10,7 @@
 
 ###
 
-<p align="left">📚 I'm currently learning React <br>🎯 Goals: I want to beacome a Web Developer! <br>🎲 </p>
+<p align="left">📚 I'm currently learning React <br>🎯 Goals: I want to beacome a Web Developer! </p>
 
 ###
 
