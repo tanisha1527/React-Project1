@@ -32,27 +32,25 @@ const Weather = () => {
    }
   
    const search = async (city) => {
-    try {
-         const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${import.meta.env.VITE_APP_ID}`;
+      try {
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${import.meta.env.VITE_APP_ID}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        const icon = allIcons[data.weather[0].icon] || clear_icon;
+        setWeatherData({
+           humidity: data.main.humidity,
+           windSpeed: data.wind.speed,
+           temprature: Math.floor(data.main.temp),
+           location: data.name,
+           icon:icon
+        })
+     } catch (error) {
 
-         const response = await fetch(url);
-         const data = await response.json();
-         console.log(data);
-         const icon = allIcons[data.weather[0].icon] || clear_icon;
-         setWeatherData({
-            humidity: data.main.humidity,
-            windSpeed: data.wind.speed,
-            temprature: Math.floor(data.main.temp),
-            location: data.name,
-            icon:icon
-         })
-      } catch (error) {
-
-      }
-  }
+    }
+}
 
   useEffect(() => {
-    search("New York");
+    search("Delhi");
   }, []);
 
   return (
